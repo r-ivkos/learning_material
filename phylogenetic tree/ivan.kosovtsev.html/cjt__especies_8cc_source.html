@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica PRO2: Gestión de un árbol filogenético.: Fichero Fuente cjt_especies.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Práctica PRO2: Gestión de un árbol filogenético.
+   &#160;<span id="projectnumber">v1.0 20-05-2020</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">cjt_especies.cc</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="cjt__especies_8cc.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cjt__especies_8hh.html">cjt_especies.hh</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classcjt__especies.html#adc692c6048e6dcc771243f1d4b28378d">   11</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#adc692c6048e6dcc771243f1d4b28378d">cjt_especies::union_interseccion_kmer</a>(<span class="keyword">const</span> vector&lt;string&gt;&amp; kmer1, <span class="keyword">const</span> vector&lt;string&gt;&amp; kmer2, <span class="keywordtype">int</span>&amp; un, <span class="keywordtype">int</span>&amp; inter) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">int</span> i, j;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  un = inter = i = j = 0;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordflow">while</span> (i &lt; kmer1.size() and j &lt; kmer2.size()) {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> (kmer1[i] == kmer2[j]) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      ++inter;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      ++i;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      ++j;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kmer1[i] &lt; kmer2[j]) ++i;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">else</span> ++j;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ++un;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">while</span> (i &lt; kmer1.size()) { <span class="comment">//por si no se ha acabado de recorrer el conjunto kmer1 para la union</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ++i;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ++un;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordflow">while</span> (j &lt; kmer2.size()) { <span class="comment">//por si no se ha acabado de recorrer el conjunto kmer2 para la union</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ++j;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    ++un;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classcjt__especies.html#a727a330774859293e1c2f290fd3ee059">   37</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classcjt__especies.html#a727a330774859293e1c2f290fd3ee059">cjt_especies::calcular_distancia</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id1, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id2)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">int</span> un, inter;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  vector&lt;string&gt; kmer1 = especies.at(id1).consultar_kmero();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  vector&lt;string&gt; kmer2 = especies.at(id2).consultar_kmero();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  union_interseccion_kmer(kmer1, kmer2, un, inter);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">return</span> ((1-(<span class="keywordtype">double</span>(inter)/un))*100);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classcjt__especies.html#abac9249d7d077dde1ac20abb3fe8deb5">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#abac9249d7d077dde1ac20abb3fe8deb5">cjt_especies::recalcular_distancias</a>() {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  distancias.clear();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">for</span> (map&lt;string, Especie&gt;::iterator it = especies.begin(); it != especies.end(); ++it) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span> (map&lt;string, Especie&gt;::iterator it2 = it; it2 != especies.end(); ++it2) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordtype">string</span> id1 = it-&gt;first;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordtype">string</span> id2 = it2-&gt;first;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">if</span> (id1 == id2) distancias[id1][id2] = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">double</span> dist = calcular_distancia(id1, id2);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        distancias[id1][id2] = distancias[id2][id1] = dist;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classcjt__especies.html#a8d94c8d7c3f7226181f621e004349a0e">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#a8d94c8d7c3f7226181f621e004349a0e">cjt_especies::crear_especie</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; gen) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    especies[id] = <a class="code" href="class_especie.html">Especie</a>(<span class="keywordtype">id</span>, gen);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordflow">for</span> (map&lt;string, Especie&gt;::iterator it = especies.begin(); it != especies.end(); ++it) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">string</span> id2 = it-&gt;first;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (id2 == <span class="keywordtype">id</span>) distancias[id][id] = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keywordtype">double</span> dist = calcular_distancia(<span class="keywordtype">id</span>, id2);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      distancias[id][id2] = distancias[id2][id] = dist;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classcjt__especies.html#ae957cb6c16cb7158c85a74a534ecbaaa">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#ae957cb6c16cb7158c85a74a534ecbaaa">cjt_especies::eleminar_especie</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>){</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  especies.erase(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  distancias.erase(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordflow">for</span> (map&lt;string, Especie&gt;::iterator it = especies.begin(); it != especies.end(); ++it) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">string</span> id2 = it-&gt;first;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    distancias[id2].erase(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classcjt__especies.html#a3f197219cb4365a63fb44d28a1d65901">   84</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="classcjt__especies.html#a3f197219cb4365a63fb44d28a1d65901">cjt_especies::consultar_gen</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">return</span> especies.at(<span class="keywordtype">id</span>).consultar_gen();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classcjt__especies.html#a65dde2fa05614d8c0939a39a70c11e34">   88</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcjt__especies.html#a65dde2fa05614d8c0939a39a70c11e34">cjt_especies::existe_especie</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <span class="keywordtype">id</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordflow">return</span> especies.find(<span class="keywordtype">id</span>) != especies.end();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classcjt__especies.html#a152b72878415a36a8a729d95c95bb29f">   92</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classcjt__especies.html#a152b72878415a36a8a729d95c95bb29f">cjt_especies::consultar_distancia</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id1, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; id2)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordflow">return</span> distancias.at(id1).at(id2);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classcjt__especies.html#a4a15360291f2a857dfb78ef86bcef304">   96</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#a4a15360291f2a857dfb78ef86bcef304">cjt_especies::leer_especies</a>() {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  especies.clear();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">int</span> n;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  cin &gt;&gt; n;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">string</span> id, gen;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    cin &gt;&gt; <span class="keywordtype">id</span> &gt;&gt; gen;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    especies[id] = <a class="code" href="class_especie.html">Especie</a>(<span class="keywordtype">id</span>, gen);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  recalcular_distancias();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classcjt__especies.html#a15729c608565b91d1f9ff38bc1c92c3d">  108</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#a15729c608565b91d1f9ff38bc1c92c3d">cjt_especies::imprimir_especies</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">for</span> (map&lt;string, Especie&gt;::const_iterator it = especies.begin(); it != especies.end(); ++it) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    cout &lt;&lt; it-&gt;first &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; it-&gt;second.consultar_gen() &lt;&lt; endl;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classcjt__especies.html#af7cb17ee3b2a797703c78baf4de9de7c">  114</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#af7cb17ee3b2a797703c78baf4de9de7c">cjt_especies::imprimir_distancias</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordflow">for</span> (map&lt;string, Especie&gt;::const_iterator it = especies.begin(); it != especies.end(); ++it) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    cout &lt;&lt; it-&gt;first &lt;&lt; <span class="stringliteral">&quot;:&quot;</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">for</span> (map&lt;string, Especie&gt;::const_iterator it2 = it; it2 != especies.end(); ++it2) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keywordflow">if</span> (it != it2) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        cout &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; it2-&gt;first &lt;&lt; <span class="stringliteral">&quot; (&quot;</span> &lt;&lt; distancias.at(it-&gt;first).at(it2-&gt;first) &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    cout &lt;&lt; endl;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classcjt__especies.html#adfeb8ff70474d7bf0ebef3d8d74fa4fb">  126</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#adfeb8ff70474d7bf0ebef3d8d74fa4fb">cjt_especies::asignar_matriz</a>(map&lt;<span class="keywordtype">string</span>, map&lt;string, double&gt; &gt;&amp; destino)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  destino = distancias;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classcjt__especies.html#a3fbb752216d96878656303b73a52a21a">  130</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcjt__especies.html#a3fbb752216d96878656303b73a52a21a">cjt_especies::asignar_cjt</a>(map&lt;string, Especie&gt;&amp; destino)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  destino = especies;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasscjt__especies_html_adfeb8ff70474d7bf0ebef3d8d74fa4fb"><div class="ttname"><a href="classcjt__especies.html#adfeb8ff70474d7bf0ebef3d8d74fa4fb">cjt_especies::asignar_matriz</a></div><div class="ttdeci">void asignar_matriz(map&lt; string, map&lt; string, double &gt; &gt; &amp;destino) const</div><div class="ttdoc">Le asigna los valores de la matriz de distancias a la matriz pasada.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00126">cjt_especies.cc:126</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_a15729c608565b91d1f9ff38bc1c92c3d"><div class="ttname"><a href="classcjt__especies.html#a15729c608565b91d1f9ff38bc1c92c3d">cjt_especies::imprimir_especies</a></div><div class="ttdeci">void imprimir_especies() const</div><div class="ttdoc">Imprime todas las especies y sus genes del conjunto.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00108">cjt_especies.cc:108</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_a152b72878415a36a8a729d95c95bb29f"><div class="ttname"><a href="classcjt__especies.html#a152b72878415a36a8a729d95c95bb29f">cjt_especies::consultar_distancia</a></div><div class="ttdeci">double consultar_distancia(const string &amp;id1, const string &amp;id2) const</div><div class="ttdoc">Devueve la distancia entre 2 especies del conjunto.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00092">cjt_especies.cc:92</a></div></div>
+<div class="ttc" id="aclass_especie_html"><div class="ttname"><a href="class_especie.html">Especie</a></div><div class="ttdoc">epresenta la información y las operaciones aplicables a una especie.</div><div class="ttdef"><b>Definition:</b> <a href="_especie_8hh_source.html#l00021">Especie.hh:21</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_ae957cb6c16cb7158c85a74a534ecbaaa"><div class="ttname"><a href="classcjt__especies.html#ae957cb6c16cb7158c85a74a534ecbaaa">cjt_especies::eleminar_especie</a></div><div class="ttdeci">void eleminar_especie(const string &amp;id)</div><div class="ttdoc">Borra la especie del conjunto.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00075">cjt_especies.cc:75</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_a4a15360291f2a857dfb78ef86bcef304"><div class="ttname"><a href="classcjt__especies.html#a4a15360291f2a857dfb78ef86bcef304">cjt_especies::leer_especies</a></div><div class="ttdeci">void leer_especies()</div><div class="ttdoc">Lee las especies por el canal estándar de entrada.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00096">cjt_especies.cc:96</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_a727a330774859293e1c2f290fd3ee059"><div class="ttname"><a href="classcjt__especies.html#a727a330774859293e1c2f290fd3ee059">cjt_especies::calcular_distancia</a></div><div class="ttdeci">double calcular_distancia(const string &amp;id1, const string &amp;id2) const</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00037">cjt_especies.cc:37</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_a3f197219cb4365a63fb44d28a1d65901"><div class="ttname"><a href="classcjt__especies.html#a3f197219cb4365a63fb44d28a1d65901">cjt_especies::consultar_gen</a></div><div class="ttdeci">string consultar_gen(const string &amp;id) const</div><div class="ttdoc">Devuelve el gen de la especie solicitada.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00084">cjt_especies.cc:84</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_abac9249d7d077dde1ac20abb3fe8deb5"><div class="ttname"><a href="classcjt__especies.html#abac9249d7d077dde1ac20abb3fe8deb5">cjt_especies::recalcular_distancias</a></div><div class="ttdeci">void recalcular_distancias()</div><div class="ttdoc">Calcula y guarda las distancias entre todas las especies del conjunto.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00045">cjt_especies.cc:45</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_adc692c6048e6dcc771243f1d4b28378d"><div class="ttname"><a href="classcjt__especies.html#adc692c6048e6dcc771243f1d4b28378d">cjt_especies::union_interseccion_kmer</a></div><div class="ttdeci">static void union_interseccion_kmer(const vector&lt; string &gt; &amp;kmer1, const vector&lt; string &gt; &amp;kmer2, int &amp;un, int &amp;inter)</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00011">cjt_especies.cc:11</a></div></div>
+<div class="ttc" id="acjt__especies_8hh_html"><div class="ttname"><a href="cjt__especies_8hh.html">cjt_especies.hh</a></div><div class="ttdoc">Especificación de la clase cjt_especies.</div></div>
+<div class="ttc" id="aclasscjt__especies_html_a8d94c8d7c3f7226181f621e004349a0e"><div class="ttname"><a href="classcjt__especies.html#a8d94c8d7c3f7226181f621e004349a0e">cjt_especies::crear_especie</a></div><div class="ttdeci">void crear_especie(const string &amp;id, const string &amp;gen)</div><div class="ttdoc">Añade la especie al conjunto.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00060">cjt_especies.cc:60</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_af7cb17ee3b2a797703c78baf4de9de7c"><div class="ttname"><a href="classcjt__especies.html#af7cb17ee3b2a797703c78baf4de9de7c">cjt_especies::imprimir_distancias</a></div><div class="ttdeci">void imprimir_distancias() const</div><div class="ttdoc">Imprime la tabla de distancias entre las especies del conjunto.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00114">cjt_especies.cc:114</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_a65dde2fa05614d8c0939a39a70c11e34"><div class="ttname"><a href="classcjt__especies.html#a65dde2fa05614d8c0939a39a70c11e34">cjt_especies::existe_especie</a></div><div class="ttdeci">bool existe_especie(const string &amp;id) const</div><div class="ttdoc">Devuelve si existe o no una especie.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00088">cjt_especies.cc:88</a></div></div>
+<div class="ttc" id="aclasscjt__especies_html_a3fbb752216d96878656303b73a52a21a"><div class="ttname"><a href="classcjt__especies.html#a3fbb752216d96878656303b73a52a21a">cjt_especies::asignar_cjt</a></div><div class="ttdeci">void asignar_cjt(map&lt; string, Especie &gt; &amp;destino) const</div><div class="ttdoc">Le asigna los valores del conjunto de especies al conjunto pasado.</div><div class="ttdef"><b>Definition:</b> <a href="cjt__especies_8cc_source.html#l00130">cjt_especies.cc:130</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>
