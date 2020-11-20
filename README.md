@@ -1,2 +1,2 @@
-# learning_material
-Every programm/project I did for school or university
+# Description
+Every programm/project I did for school/university
