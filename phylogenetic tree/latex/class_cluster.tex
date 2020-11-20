@@ -1,0 +1,210 @@
+\hypertarget{class_cluster}{}\doxysection{Referencia de la Clase Cluster}
+\label{class_cluster}\index{Cluster@{Cluster}}
+
+
+Representa la información y las operaciones aplicables a un clúster.  
+
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cluster_aee7feb1d599d4c8fda6c3ee83e86ba81}{Cluster}} ()
+\begin{DoxyCompactList}\small\item\em Consturctora por defecto de la clase \mbox{\hyperlink{class_cluster}{Cluster}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cluster_a4702942c6848ae6fbb7de215b49797d5}{Cluster}} (const string \&id)
+\begin{DoxyCompactList}\small\item\em constructora de un clúster \char`\"{}hoja\char`\"{} a partir de un identificador. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cluster_a2fb9c66ec6c7ae26579e8385ce2bbb8f}{Cluster}} (const \mbox{\hyperlink{class_cluster}{Cluster}} \&clust1, const \mbox{\hyperlink{class_cluster}{Cluster}} \&clust2, double dist)
+\begin{DoxyCompactList}\small\item\em constructora a partir de 2 clústers y la distnacia entre ellos. \end{DoxyCompactList}\item 
+Bin\+Tree$<$ \mbox{\hyperlink{struct_nodo}{Nodo}} $>$ \mbox{\hyperlink{class_cluster_af3c16c066eb544e4e8d2ed85f967ebd6}{consultar\+\_\+cluster}} () const
+\begin{DoxyCompactList}\small\item\em Consulta el árbol que forma el clúster. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_cluster_a361c05611f6a030e65d66a30ff24b83f}{imprimir\+\_\+cluster}} (const Bin\+Tree$<$ \mbox{\hyperlink{struct_nodo}{Nodo}} $>$ \&clust)
+\begin{DoxyCompactList}\small\item\em Imprime el clúster deseado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_nodo}{Nodo}} \mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}}
+\begin{DoxyCompactList}\small\item\em el nodo de un clúster que almacena el identificador y la distancia entre el nodo del clúster y sus hojas \end{DoxyCompactList}\item 
+Bin\+Tree$<$ \mbox{\hyperlink{struct_nodo}{Nodo}} $>$ \mbox{\hyperlink{class_cluster_a1eaa6fd779ebf2c10211f3a5fb93d969}{cluster}}
+\begin{DoxyCompactList}\small\item\em El nodo del clúster. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Representa la información y las operaciones aplicables a un clúster. 
+
+Sus operaciones son consultoras del cluster, la distancias entre el cluster y las constructoras a partir de una id y a partir de 2 clusters. 
+
+Definición en la línea 33 del archivo Cluster.\+hh.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_cluster_aee7feb1d599d4c8fda6c3ee83e86ba81}\label{class_cluster_aee7feb1d599d4c8fda6c3ee83e86ba81}} 
+\index{Cluster@{Cluster}!Cluster@{Cluster}}
+\index{Cluster@{Cluster}!Cluster@{Cluster}}
+\doxysubsubsection{\texorpdfstring{Cluster()}{Cluster()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Cluster\+::\+Cluster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Consturctora por defecto de la clase \mbox{\hyperlink{class_cluster}{Cluster}}. 
+
+
+
+Definición en la línea 11 del archivo Cluster.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cluster_a4702942c6848ae6fbb7de215b49797d5}\label{class_cluster_a4702942c6848ae6fbb7de215b49797d5}} 
+\index{Cluster@{Cluster}!Cluster@{Cluster}}
+\index{Cluster@{Cluster}!Cluster@{Cluster}}
+\doxysubsubsection{\texorpdfstring{Cluster()}{Cluster()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Cluster\+::\+Cluster (\begin{DoxyParamCaption}\item[{const string \&}]{id }\end{DoxyParamCaption})}
+
+
+
+constructora de un clúster \char`\"{}hoja\char`\"{} a partir de un identificador. 
+
+
+
+Definición en la línea 13 del archivo Cluster.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15   \mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}}.\mbox{\hyperlink{struct_nodo_ae23e512859fee47b4cc7dd9b99db97e3}{id}} = id;}
+\DoxyCodeLine{16   \mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}}.\mbox{\hyperlink{struct_nodo_a4134058f60147132363e26705f9fa160}{distancia\_hojas}} = -\/1; \textcolor{comment}{//sera el valor por defecto de una hoja}}
+\DoxyCodeLine{17   \mbox{\hyperlink{class_cluster_a1eaa6fd779ebf2c10211f3a5fb93d969}{cluster}} = BinTree<Nodo>(\mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}});}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cluster_a2fb9c66ec6c7ae26579e8385ce2bbb8f}\label{class_cluster_a2fb9c66ec6c7ae26579e8385ce2bbb8f}} 
+\index{Cluster@{Cluster}!Cluster@{Cluster}}
+\index{Cluster@{Cluster}!Cluster@{Cluster}}
+\doxysubsubsection{\texorpdfstring{Cluster()}{Cluster()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Cluster\+::\+Cluster (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cluster}{Cluster}} \&}]{clust1,  }\item[{const \mbox{\hyperlink{class_cluster}{Cluster}} \&}]{clust2,  }\item[{double}]{dist }\end{DoxyParamCaption})}
+
+
+
+constructora a partir de 2 clústers y la distnacia entre ellos. 
+
+
+
+Definición en la línea 20 del archivo Cluster.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22   \mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}}.\mbox{\hyperlink{struct_nodo_ae23e512859fee47b4cc7dd9b99db97e3}{id}} = clust1.\mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}}.\mbox{\hyperlink{struct_nodo_ae23e512859fee47b4cc7dd9b99db97e3}{id}} + clust2.\mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}}.\mbox{\hyperlink{struct_nodo_ae23e512859fee47b4cc7dd9b99db97e3}{id}};}
+\DoxyCodeLine{23   \mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}}.\mbox{\hyperlink{struct_nodo_a4134058f60147132363e26705f9fa160}{distancia\_hojas}} = dist/2;}
+\DoxyCodeLine{24   \mbox{\hyperlink{class_cluster_a1eaa6fd779ebf2c10211f3a5fb93d969}{cluster}} = BinTree<Nodo>(\mbox{\hyperlink{class_cluster_a973261c201085c4df8d9d2dc8e372328}{nodo}}, clust1.\mbox{\hyperlink{class_cluster_a1eaa6fd779ebf2c10211f3a5fb93d969}{cluster}}, clust2.\mbox{\hyperlink{class_cluster_a1eaa6fd779ebf2c10211f3a5fb93d969}{cluster}});}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_cluster_af3c16c066eb544e4e8d2ed85f967ebd6}\label{class_cluster_af3c16c066eb544e4e8d2ed85f967ebd6}} 
+\index{Cluster@{Cluster}!consultar\_cluster@{consultar\_cluster}}
+\index{consultar\_cluster@{consultar\_cluster}!Cluster@{Cluster}}
+\doxysubsubsection{\texorpdfstring{consultar\_cluster()}{consultar\_cluster()}}
+{\footnotesize\ttfamily Bin\+Tree$<$ \mbox{\hyperlink{struct_nodo}{Nodo}} $>$ Cluster\+::consultar\+\_\+cluster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consulta el árbol que forma el clúster. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el árbol del parámetro implícito. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 27 del archivo Cluster.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                                                \{}
+\DoxyCodeLine{28   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_cluster_a1eaa6fd779ebf2c10211f3a5fb93d969}{cluster}};}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cluster_a361c05611f6a030e65d66a30ff24b83f}\label{class_cluster_a361c05611f6a030e65d66a30ff24b83f}} 
+\index{Cluster@{Cluster}!imprimir\_cluster@{imprimir\_cluster}}
+\index{imprimir\_cluster@{imprimir\_cluster}!Cluster@{Cluster}}
+\doxysubsubsection{\texorpdfstring{imprimir\_cluster()}{imprimir\_cluster()}}
+{\footnotesize\ttfamily void Cluster\+::imprimir\+\_\+cluster (\begin{DoxyParamCaption}\item[{const Bin\+Tree$<$ \mbox{\hyperlink{struct_nodo}{Nodo}} $>$ \&}]{clust }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Imprime el clúster deseado. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Por el canal estándar de salida se ha escrito el clúster \char`\"{}clust\char`\"{}. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 31 del archivo Cluster.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33   \textcolor{keywordflow}{if} (not clust.empty()) \{}
+\DoxyCodeLine{34     cout << \textcolor{stringliteral}{"["};}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (clust.value().distancia\_hojas != -\/1) \{}
+\DoxyCodeLine{36       cout << \textcolor{stringliteral}{"("} << clust.value().id << \textcolor{stringliteral}{", "} << clust.value().distancia\_hojas << \textcolor{stringliteral}{") "};}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38     \textcolor{keywordflow}{else} cout << clust.value().id;}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_cluster_a361c05611f6a030e65d66a30ff24b83f}{imprimir\_cluster}}(clust.left());}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_cluster_a361c05611f6a030e65d66a30ff24b83f}{imprimir\_cluster}}(clust.right());}
+\DoxyCodeLine{41     cout << \textcolor{stringliteral}{"]"};}
+\DoxyCodeLine{42   \}}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_cluster_a973261c201085c4df8d9d2dc8e372328}\label{class_cluster_a973261c201085c4df8d9d2dc8e372328}} 
+\index{Cluster@{Cluster}!nodo@{nodo}}
+\index{nodo@{nodo}!Cluster@{Cluster}}
+\doxysubsubsection{\texorpdfstring{nodo}{nodo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_nodo}{Nodo}} Cluster\+::nodo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+el nodo de un clúster que almacena el identificador y la distancia entre el nodo del clúster y sus hojas 
+
+
+
+Definición en la línea 37 del archivo Cluster.\+hh.
+
+\mbox{\Hypertarget{class_cluster_a1eaa6fd779ebf2c10211f3a5fb93d969}\label{class_cluster_a1eaa6fd779ebf2c10211f3a5fb93d969}} 
+\index{Cluster@{Cluster}!cluster@{cluster}}
+\index{cluster@{cluster}!Cluster@{Cluster}}
+\doxysubsubsection{\texorpdfstring{cluster}{cluster}}
+{\footnotesize\ttfamily Bin\+Tree$<$\mbox{\hyperlink{struct_nodo}{Nodo}}$>$ Cluster\+::cluster\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+El nodo del clúster. 
+
+Árbol binario que representa un clúster, donde el nodo del árbol es el \char`\"{}\+Nodo\char`\"{} del clúster actual y sus hijos son los clústers, que estaban a la mínima distancia, que lo han formado. 
+
+Definición en la línea 42 del archivo Cluster.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_cluster_8hh}{Cluster.\+hh}}\item 
+\mbox{\hyperlink{_cluster_8cc}{Cluster.\+cc}}\end{DoxyCompactItemize}
